@@ -7,6 +7,11 @@ if op == '-':
     print(a - b)
 if op == '*':
     print(a * b)
+if op == '/':
+    if b == 0:
+        break
+    else:
+        print(a / b)
     
 # git log - показывает список (ленту) коммитов, их авторов, даты, хеши и сообщения.
 
