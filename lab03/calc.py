@@ -5,5 +5,6 @@ if op == '+':
     print(a + b)
 if op == '-':
     print(a - b)
-
+if op == '*':
+    print(a * b)
     
