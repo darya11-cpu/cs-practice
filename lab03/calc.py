@@ -7,4 +7,7 @@ if op == '-':
     print(a - b)
 if op == '*':
     print(a * b)
+if op == '/':
+    if b != 0:
+        print(a / b)
 
