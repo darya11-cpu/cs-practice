@@ -8,8 +8,8 @@ if op == '-':
 if op == '*':
     print(a * b)
 if op == '/':
-    if b != 0:
-        print(a / b)
-    else:
+    if b == 0:
         print('Нельзя делить на 0')
-        
+    else:
+        print(a / b)
+
