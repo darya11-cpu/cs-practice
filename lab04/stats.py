@@ -14,7 +14,7 @@ def parse_record(line):
     
     return {
         "city": city,
-        "temperature": temp,
+        "temp": temp,
         "date": date
     }
 
