@@ -1,13 +1,19 @@
-def parse_record(line: str) -> dict:
-    clean_line = line.strip()
+def parse_record(line):
+    line = line.strip(';')
     
-    if not clean_line:
-        return {}
-    
-    parts = clean_line.split(",")
+    if len(line) != 3:
+        raise ValueError('Полей не ровно 3')
+    else:
+        city, temp_str, date = line
+    if not city.strip() or not date.strip():
+        raise ValueError('Данные для города или даты отсутствуют')
+    try:
+        temp = float(temp_str)
+    except ValueError:
+        raise ValueError('Температура не является числом')
     
     return {
-        "city": int(parts[0].strip()),       # Приведение к числу, если нужно
-        "name": parts[1].strip(),
-        "role": parts[2].strip()
-    }
+        "city": city,
+        "temp": temp,
+        "date": date
+    }=]
