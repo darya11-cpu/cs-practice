@@ -21,5 +21,5 @@ def main():
     print(errors_count)
     print(f'(best_average:.1f)')
 
-if _-__name__ == '__main__':
+if __name__ == '__main__':
     main()
