@@ -16,4 +16,4 @@ def parse_record(line):
         "city": city,
         "temp": temp,
         "date": date
-    }=]
+    }
