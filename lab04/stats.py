@@ -1,5 +1,5 @@
 def parse_record(line):
-    line = line.strip(';')
+    line = line.split(';')
     
     if len(line) != 3:
         raise ValueError('Полей не ровно 3')
@@ -36,10 +36,10 @@ def average_by_city(records):
     for r in records:
         city = r['city']
         totals[city] = totals.get(city, 0.0) + r['temp']
-        counts['city'] = counts.get(city, 0) + 1
+        counts[city] = counts.get(city, 0) + 1
     averages = {}
     for city in totals:
-        averages[city] = rount(totals[city] / counts[city], 1)
+        averages[city] = round(totals[city] / counts[city], 1)
     return averages
 
 def warmest_city(records):
