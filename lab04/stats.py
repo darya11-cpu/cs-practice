@@ -4,17 +4,17 @@ def parse_record(line):
     if len(line) != 3:
         raise ValueError('Полей не ровно 3')
     else:
-        city, temp_str, date = line
+        city, temperature_str, date = line
     if not city.strip() or not date.strip():
         raise ValueError('Данные для города или даты отсутствуют')
     try:
-        temp = float(temp_str)
+        temperature = float(temperature_str)
     except ValueError:
         raise ValueError('Температура не является числом')
     
     return {
         "city": city,
-        "temp": temp,
+        "temp": temperature,
         "date": date
     }
 
