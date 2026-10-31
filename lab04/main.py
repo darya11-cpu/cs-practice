@@ -19,7 +19,7 @@ def main():
 
     print(len(valid_records))
     print(errors_count)
-    print(f'(best_average:.1f)')
+    print(f'{best_average:.1f}')
 
 if __name__ == '__main__':
     main()
