@@ -8,7 +8,7 @@ def parse_record(line):
     if not city.strip() or not date.strip():
         raise ValueError('Данные для города или даты отсутствуют')
     try:
-        temperature = float(temp_str)
+        temp = float(temp_str)
     except ValueError:
         raise ValueError('Температура не является числом')
     
