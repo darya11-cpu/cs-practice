@@ -9,6 +9,7 @@ def parse_event(line):
 
     raise ValueError
 
+
 def count_levels(lines):
     counts = {
         'BROKEN': 0,
@@ -29,6 +30,7 @@ def count_levels(lines):
                 counts['BROKEN'] += 1
 
     return counts
+
 
 def top_errors(lines, n):
     errors = {}
@@ -57,6 +59,7 @@ def top_errors(lines, n):
     result.sort(key=lambda x: (-x[1], x[0]))
 
     return result[:n]
+
 
 def format_report(counts, errors):
     report = 'Отчёт по журналу\n\n'

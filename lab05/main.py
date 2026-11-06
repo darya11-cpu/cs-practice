@@ -11,8 +11,7 @@ with open(file_name, 'r', encoding='utf-8') as log:
 total = 0
 
 for level in counts:
-    if level != 'BROKEN':
-        total += counts[level]
+    total += counts[level]
 
 error_count = counts['ERROR']
 broken = counts['BROKEN']
