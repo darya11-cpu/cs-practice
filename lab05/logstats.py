@@ -1,36 +1,42 @@
 def parse_event(line):
-    line = line.strip().split(' ', 2)
+    line = line.strip().split(maxsplit=2)
 
-    if len(line) == 3:
-        time, level, message = line
+    if len(line) >= 2:
+        time = line[0]
+        level = line[1]
 
         if level == 'DEBUG' or level == 'INFO' or level == 'WARNING' or level == 'ERROR':
+            if len(line) == 3:
+                message = line[2]
+            else:
+                message = ''
+
             return {'time': time, 'level': level, 'message': message}
 
     raise ValueError
 
 
 def count_levels(lines):
-    counts = {
-        'BROKEN': 0,
-        'DEBUG': 0,
-        'INFO': 0,
-        'WARNING': 0,
-        'ERROR': 0
-    }
+    counts = {}
 
     for line in lines:
         if line.strip() != '':
             try:
                 event = parse_event(line)
                 level = event['level']
-                counts[level] += 1
+
+                if level in counts:
+                    counts[level] += 1
+                else:
+                    counts[level] = 1
 
             except ValueError:
-                counts['BROKEN'] += 1
+                if 'BROKEN' in counts:
+                    counts['BROKEN'] += 1
+                else:
+                    counts['BROKEN'] = 1
 
     return counts
-
 
 def top_errors(lines, n):
     errors = {}
